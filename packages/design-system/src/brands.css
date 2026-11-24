@@ -1,0 +1,84 @@
+/* ========================================
+   Academic Brand (Default)
+   Inspired by TU Sofia, Plovdiv branch
+   ======================================== */
+
+:root,
+[data-brand='academic'] {
+  /* Primary */
+  --brand-primary: var(--color-indigo-900);
+  --brand-primary-hover: var(--color-indigo-800);
+  --brand-primary-dark: var(--color-blue-200);
+  --brand-primary-dark-hover: var(--color-blue-100);
+
+  /* Accent */
+  --brand-accent: var(--color-yellow-200);
+  --brand-accent-hover: var(--color-yellow-300);
+  --brand-accent-dark: var(--color-yellow-300);
+
+  /* Secondary */
+  --brand-secondary: var(--color-blue-100);
+  --brand-secondary-dark: var(--color-blue-800);
+
+  /* Background */
+  --brand-background-light: var(--color-gray-50);
+  --brand-background-dark: var(--color-indigo-950);
+
+  /* Surface */
+  --brand-surface-light: var(--color-white);
+  --brand-surface-dark: var(--color-gray-800);
+
+  /* Border */
+  --brand-border-light: var(--color-gray-200);
+  --brand-border-dark: var(--color-gray-700);
+
+  /* Text */
+  --brand-text-light: var(--color-indigo-900);
+  --brand-text-dark: var(--color-gray-50);
+
+  /* Focus */
+  --brand-focus-light: var(--color-blue-600);
+  --brand-focus-dark: var(--color-blue-300);
+}
+
+/* ========================================
+   Studio Brand
+   Contemporary alternative identity
+   ======================================== */
+
+[data-brand='studio'] {
+  /* Primary */
+  --brand-primary: var(--color-graphite-900);
+  --brand-primary-hover: var(--color-graphite-700);
+  --brand-primary-dark: var(--color-cream-100);
+  --brand-primary-dark-hover: var(--color-white);
+
+  /* Accent */
+  --brand-accent: var(--color-butter-200);
+  --brand-accent-hover: var(--color-butter-300);
+  --brand-accent-dark: var(--color-butter-300);
+
+  /* Secondary */
+  --brand-secondary: var(--color-sage-100);
+  --brand-secondary-dark: var(--color-sage-800);
+
+  /* Background */
+  --brand-background-light: var(--color-cream-50);
+  --brand-background-dark: var(--color-graphite-950);
+
+  /* Surface */
+  --brand-surface-light: var(--color-white);
+  --brand-surface-dark: var(--color-graphite-900);
+
+  /* Border */
+  --brand-border-light: var(--color-cream-200);
+  --brand-border-dark: var(--color-graphite-700);
+
+  /* Text */
+  --brand-text-light: var(--color-graphite-900);
+  --brand-text-dark: var(--color-cream-50);
+
+  /* Focus */
+  --brand-focus-light: var(--color-sage-700);
+  --brand-focus-dark: var(--color-sage-200);
+}

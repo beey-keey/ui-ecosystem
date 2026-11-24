@@ -1,0 +1,23 @@
+{
+  "name": "@ui-ecosystem/design-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared design tokens, themes and foundational styles",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.css"
+    },
+    "./tokens.css": "./src/tokens.css",
+    "./brands.css": "./src/brands.css",
+    "./themes.css": "./src/themes.css",
+    "./base.css": "./src/base.css"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "dependencies": {
+    "@fontsource-variable/geist": "^5.3.0",
+    "@fontsource-variable/geist-mono": "^5.3.0"
+  }
+}
