@@ -1,0 +1,11 @@
+{
+  "name": "ui-ecosystem",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reusable UI ecosystem and integration architecture based on Vue 3 and TypeScript",
+  "packageManager": "pnpm@12.23.0",
+  "scripts": {
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build"
+  }
+}
