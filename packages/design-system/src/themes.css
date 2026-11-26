@@ -69,6 +69,11 @@
   /* Skeleton loading */
   --color-skeleton: var(--color-gray-200);
   --color-skeleton-highlight: var(--color-gray-100);
+
+  /* Destructive actions */
+  --color-destructive: var(--color-red-600);
+  --color-destructive-hover: var(--color-red-800);
+  --color-on-destructive: var(--color-white);
 }
 
 /* ========================================
@@ -141,4 +146,9 @@
   /* Skeleton loading */
   --color-skeleton: var(--color-gray-700);
   --color-skeleton-highlight: var(--color-gray-600);
+
+  /* Destructive actions */
+  --color-destructive: var(--color-red-400);
+  --color-destructive-hover: var(--color-red-100);
+  --color-on-destructive: var(--color-red-950);
 }

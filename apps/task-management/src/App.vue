@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import { useTheme } from '@ui-ecosystem/core'
+import { UiButton } from '@ui-ecosystem/ui-kit'
+
+import { Trash2 } from 'lucide-vue-next'
 
 const { brand, theme } = useTheme({
   storageKey: 'task-management-theme',
@@ -61,11 +64,26 @@ const { brand, theme } = useTheme({
       <p class="description">This application consumes the shared Design System package.</p>
 
       <div class="actions">
-        <button type="button" class="button-primary">Primary action</button>
+        <UiButton variant="primary"> Primary action </UiButton>
 
-        <button type="button" class="button-secondary">Secondary action</button>
+        <UiButton variant="secondary"> Secondary action </UiButton>
 
-        <button type="button" class="button-accent">Accent action</button>
+        <UiButton variant="accent"> Accent action </UiButton>
+
+        <UiButton variant="outline"> Outline action </UiButton>
+
+        <UiButton variant="ghost"> Ghost action </UiButton>
+
+        <UiButton variant="destructive">
+          <template #leading>
+            <Trash2 />
+          </template>
+
+          Delete task
+        </UiButton>
+        <UiButton disabled> Disabled </UiButton>
+
+        <UiButton loading> Loading </UiButton>
       </div>
 
       <div class="feedback feedback-success">Success — your changes have been saved.</div>
@@ -132,7 +150,7 @@ const { brand, theme } = useTheme({
   padding-inline: var(--spacing-3);
   background: var(--color-surface);
   color: var(--color-text);
-  border: 1px solid var(--color-border-strong);
+  border: var(--border-width-sm) solid var(--color-border-strong);
   border-radius: var(--radius-md);
 }
 
@@ -148,7 +166,7 @@ const { brand, theme } = useTheme({
   gap: var(--spacing-3);
   padding: var(--spacing-6);
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: var(--border-width-sm) solid var(--color-border);
   border-radius: var(--radius-xl);
 }
 
@@ -172,7 +190,7 @@ const { brand, theme } = useTheme({
   gap: var(--spacing-4);
   padding: var(--spacing-6);
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: var(--border-width-sm) solid var(--color-border);
   border-radius: var(--radius-xl);
 }
 
@@ -181,42 +199,6 @@ const { brand, theme } = useTheme({
   flex-wrap: wrap;
   gap: var(--spacing-3);
   margin-block: var(--spacing-2);
-}
-
-.actions button {
-  min-height: var(--control-size-md);
-  padding: var(--spacing-2) var(--spacing-4);
-  border: none;
-  border-radius: var(--radius-md);
-  font-weight: var(--font-weight-medium);
-  transition: background-color var(--duration-fast) var(--easing-default);
-}
-
-.button-primary {
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-}
-
-.button-primary:hover {
-  background: var(--color-primary-hover);
-}
-
-.button-secondary {
-  background: var(--color-secondary);
-  color: var(--color-on-secondary);
-}
-
-.button-secondary:hover {
-  background: var(--color-secondary-hover);
-}
-
-.button-accent {
-  background: var(--color-accent);
-  color: var(--color-on-accent);
-}
-
-.button-accent:hover {
-  background: var(--color-accent-hover);
 }
 
 .feedback {

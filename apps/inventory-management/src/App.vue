@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useTheme } from '@ui-ecosystem/core'
+import { UiButton } from '@ui-ecosystem/ui-kit'
+import { Plus } from 'lucide-vue-next'
 
 const { brand, theme } = useTheme({
   storageKey: 'inventory-management-theme',
@@ -114,7 +116,13 @@ const lowStock = computed(() => products.value.filter((product) => product.stock
           <p class="description">Overview of your current inventory.</p>
         </div>
 
-        <button type="button" class="button-primary" disabled>+ Add product</button>
+        <UiButton variant="primary" disabled>
+          <template #leading>
+            <Plus />
+          </template>
+
+          Add product
+        </UiButton>
       </div>
 
       <div class="search">
@@ -281,26 +289,6 @@ const lowStock = computed(() => products.value.filter((product) => product.stock
 
 .panel-header .description {
   margin-top: var(--spacing-2);
-}
-
-.button-primary {
-  min-height: var(--control-size-md);
-  padding: var(--spacing-2) var(--spacing-4);
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  border: none;
-  border-radius: var(--radius-md);
-  font-weight: var(--font-weight-medium);
-  transition: var(--transition-fast);
-}
-
-.button-primary:hover:not(:disabled) {
-  background: var(--color-primary-hover);
-}
-
-.button-primary:disabled {
-  background: var(--color-disabled);
-  color: var(--color-on-disabled);
 }
 
 .search input {

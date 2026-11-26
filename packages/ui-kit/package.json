@@ -1,0 +1,18 @@
+{
+  "name": "@ui-ecosystem/ui-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reusable Vue 3 UI components built on shared design tokens",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0",
+    "@ui-ecosystem/design-system": "workspace:*"
+  },
+  "sideEffects": [
+    "**/*.css",
+    "**/*.vue"
+  ]
+}
