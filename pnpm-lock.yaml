@@ -187,6 +187,9 @@ importers:
 
   apps/inventory-management:
     dependencies:
+      '@ui-ecosystem/core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@ui-ecosystem/design-system':
         specifier: workspace:*
         version: link:../../packages/design-system
@@ -269,6 +272,9 @@ importers:
 
   apps/task-management:
     dependencies:
+      '@ui-ecosystem/core':
+        specifier: workspace:*
+        version: link:../../packages/core
       '@ui-ecosystem/design-system':
         specifier: workspace:*
         version: link:../../packages/design-system
@@ -348,6 +354,12 @@ importers:
       vue-tsc:
         specifier: ^3.3.11
         version: 3.3.14(typescript@6.0.3)
+
+  packages/core:
+    dependencies:
+      vue:
+        specifier: ^3.0.0
+        version: 3.5.46(typescript@6.0.3)
 
   packages/design-system:
     dependencies:

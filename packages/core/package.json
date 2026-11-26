@@ -1,0 +1,13 @@
+{
+  "name": "@ui-ecosystem/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared application logic, composables and integration utilities",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  }
+}

@@ -1,20 +1,11 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { useTheme } from '@ui-ecosystem/core'
 
-type Brand = 'academic' | 'studio'
-type Theme = 'light' | 'dark'
-
-const brand = ref<Brand>('academic')
-const theme = ref<Theme>('light')
-
-watch(
-  [brand, theme],
-  ([currentBrand, currentTheme]) => {
-    document.documentElement.dataset.brand = currentBrand
-    document.documentElement.dataset.theme = currentTheme
-  },
-  { immediate: true },
-)
+const { brand, theme } = useTheme({
+  storageKey: 'task-management-theme',
+  defaultBrand: 'academic',
+  defaultTheme: 'light',
+})
 </script>
 
 <template>
