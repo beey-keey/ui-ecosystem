@@ -1,0 +1,47 @@
+import { test, expect } from '@playwright/test'
+
+test.beforeEach(async ({ page }) => {
+  await page.addInitScript(() => {
+    if (sessionStorage.getItem('e2e-initialized')) return
+    localStorage.setItem('ui-ecosystem:inventory-management:products:v1', '[]')
+    sessionStorage.setItem('e2e-initialized', 'true')
+  })
+})
+
+test('manages products and updates inventory metrics', async ({ page }) => {
+  await page.goto('/products')
+  await page.getByRole('button', { name: 'Add product' }).click()
+  const dialog = page.getByRole('dialog')
+  await dialog.getByRole('textbox', { name: /^Name\b/i }).fill('E2E product')
+  await dialog.getByLabel('Description').fill('Browser verification')
+  await dialog.getByLabel('Category').fill('Testing')
+  await dialog.getByLabel('Quantity').fill('12')
+  await dialog.getByLabel('Unit price').fill('25.50')
+  await dialog.getByRole('button', { name: 'Save' }).click()
+  await expect(dialog).not.toBeVisible()
+  const row = page
+    .getByRole('table', { name: 'Product list' })
+    .getByRole('row')
+    .filter({ hasText: 'E2E product' })
+  await expect(row).toContainText('Available')
+  await page.getByLabel('Search').fill('Browser verification')
+  await page.getByLabel('Category').selectOption('Testing')
+  await page.getByLabel('Stock').selectOption('low')
+  await expect(row).toHaveCount(0)
+  await page.getByLabel('Stock').selectOption('available')
+  await row.getByRole('button', { name: 'Edit' }).click()
+  await dialog.getByLabel('Quantity').fill('4')
+  await dialog.getByRole('button', { name: 'Save' }).click()
+  await page.getByLabel('Stock').selectOption('low')
+  await expect(row).toContainText('Low stock')
+  await page.reload()
+  await expect(row).toContainText('Low stock')
+  await page.getByRole('button', { name: 'Dashboard', exact: true }).click()
+  await expect(page.locator('.metrics .metric')).toHaveText(['1', '1', '0', '102.00'])
+  await page.getByRole('button', { name: 'View products' }).click()
+  await row.getByRole('button', { name: 'Delete' }).click()
+  await dialog.getByRole('button', { name: 'Delete', exact: true }).click()
+  await expect(page.getByText('No matching products.')).toBeVisible()
+  await page.reload()
+  await expect(page.getByText('No matching products.')).toBeVisible()
+})

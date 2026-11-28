@@ -1,11 +1,36 @@
 import { describe, it, expect } from 'vitest'
-
 import { mount } from '@vue/test-utils'
+import { createRouter, createMemoryHistory } from 'vue-router'
+import { createPinia } from 'pinia'
 import App from '../App.vue'
 
-describe('App', () => {
-  it('mounts renders properly', () => {
-    const wrapper = mount(App)
-    expect(wrapper.text()).toContain('You did it!')
+describe('Inventory Management App', () => {
+  it('renders the application shell', async () => {
+    const router = createRouter({
+      history: createMemoryHistory(),
+      routes: [
+        {
+          path: '/',
+          name: 'dashboard',
+          component: {
+            template: '<div>Dashboard content</div>',
+          },
+        },
+      ],
+    })
+
+    await router.push('/')
+    await router.isReady()
+
+    const wrapper = mount(App, {
+      global: {
+        plugins: [router, createPinia()],
+      },
+    })
+
+    expect(wrapper.text()).toContain('Inventory Management')
+    expect(wrapper.text()).toContain('Dashboard')
+    expect(wrapper.text()).toContain('Products')
+    expect(wrapper.text()).toContain('Users')
   })
 })
