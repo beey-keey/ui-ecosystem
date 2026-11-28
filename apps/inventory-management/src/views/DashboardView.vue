@@ -25,18 +25,18 @@ const formatAmount = (value: number) =>
     </div>
     <UiAlert v-if="store.error" variant="error">{{ store.error }}</UiAlert>
     <div class="metrics">
-      <UiCard title="Total products" variant="accent"
-        ><p class="metric">{{ store.total }}</p></UiCard
-      >
-      <UiCard title="Low stock" variant="secondary"
-        ><p class="metric">{{ store.lowStock }}</p></UiCard
-      >
-      <UiCard title="Out of stock"
-        ><p class="metric">{{ store.outOfStock }}</p></UiCard
-      >
-      <UiCard title="Inventory value"
-        ><p class="metric">{{ formatAmount(store.totalValue) }}</p></UiCard
-      >
+      <UiCard title="Total products" variant="accent">
+        <p class="metric">{{ store.total }}</p>
+      </UiCard>
+      <UiCard title="Low stock" variant="secondary">
+        <p class="metric">{{ store.lowStock }}</p>
+      </UiCard>
+      <UiCard title="Out of stock">
+        <p class="metric">{{ store.outOfStock }}</p>
+      </UiCard>
+      <UiCard title="Inventory value">
+        <p class="metric">{{ formatAmount(store.totalValue) }}</p>
+      </UiCard>
     </div>
     <UiCard title="Inventory overview" description="Current products and availability.">
       <UiTable
@@ -47,19 +47,20 @@ const formatAmount = (value: number) =>
         empty-text="No products yet."
       >
         <template #cell-price="{ row }">{{ formatAmount(row.price) }}</template>
-        <template #cell-status="{ row }"
-          ><UiBadge
+        <template #cell-status="{ row }">
+          <UiBadge
             :variant="row.quantity === 0 ? 'error' : row.quantity < 10 ? 'warning' : 'success'"
-            >{{
+          >
+            {{
               row.quantity === 0 ? 'Out of stock' : row.quantity < 10 ? 'Low stock' : 'Available'
-            }}</UiBadge
-          ></template
-        >
+            }}
+          </UiBadge>
+        </template>
       </UiTable>
       <div class="section-actions">
-        <UiButton variant="outline" @click="router.push({ name: 'products' })"
-          >View products</UiButton
-        >
+        <UiButton variant="outline" @click="router.push({ name: 'products' })">
+          View products
+        </UiButton>
       </div>
     </UiCard>
   </section>

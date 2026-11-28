@@ -1,2 +1,2 @@
-export { default as UiBadge } from "./UiBadge.vue";
-export * from "./UiBadge.types";
+export { default as UiBadge } from './UiBadge.vue'
+export * from './UiBadge.types'

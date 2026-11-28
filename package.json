@@ -7,11 +7,25 @@
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r build",
-    "lint": "pnpm -r run lint",
+    "type-check": "pnpm -r --if-present run type-check",
+    "lint": "pnpm lint:oxlint && pnpm lint:eslint",
+    "lint:oxlint": "oxlint apps packages",
+    "lint:eslint": "eslint apps packages",
+    "lint:fix": "oxlint apps packages --fix && eslint apps packages --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
   "devDependencies": {
-    "prettier": "^3.9.6"
+    "@vitest/eslint-plugin": "^1.6.28",
+    "@vue/eslint-config-typescript": "^14.9.0",
+    "eslint": "^10.15.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-oxlint": "~1.82.0",
+    "eslint-plugin-vue": "~10.11.1",
+    "jiti": "^2.7.0",
+    "oxlint": "~1.82.0",
+    "prettier": "^3.9.6",
+    "typescript": "~6.0.3",
+    "vue-eslint-parser": "^10.4.2"
   }
 }

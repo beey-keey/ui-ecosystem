@@ -1,6 +1,6 @@
-export type AlertVariant = "neutral" | "success" | "error" | "warning" | "info";
+export type AlertVariant = 'neutral' | 'success' | 'error' | 'warning' | 'info'
 export interface AlertProps {
-  variant?: AlertVariant;
-  title?: string;
-  dismissible?: boolean;
+  variant?: AlertVariant
+  title?: string
+  dismissible?: boolean
 }

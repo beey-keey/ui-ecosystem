@@ -1,2 +1,2 @@
-export { default as UiAlert } from "./UiAlert.vue";
-export * from "./UiAlert.types";
+export { default as UiAlert } from './UiAlert.vue'
+export * from './UiAlert.types'

@@ -1,38 +1,38 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import type { ButtonProps } from "./UiButton.types";
+import { computed } from 'vue'
+import type { ButtonProps } from './UiButton.types'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  variant: "primary",
-  size: "md",
-  type: "button",
+  variant: 'primary',
+  size: 'md',
+  type: 'button',
   disabled: false,
   loading: false,
   fullWidth: false,
-});
+})
 
 const emit = defineEmits<{
-  click: [event: MouseEvent];
-}>();
+  click: [event: MouseEvent]
+}>()
 
-const isDisabled = computed(() => props.disabled || props.loading);
+const isDisabled = computed(() => props.disabled || props.loading)
 
 const buttonClasses = computed(() => [
-  "ui-button",
+  'ui-button',
   `ui-button--${props.variant}`,
   `ui-button--${props.size}`,
   {
-    "ui-button--full-width": props.fullWidth,
-    "ui-button--loading": props.loading,
+    'ui-button--full-width': props.fullWidth,
+    'ui-button--loading': props.loading,
   },
-]);
+])
 
 function handleClick(event: MouseEvent) {
   if (isDisabled.value) {
-    return;
+    return
   }
 
-  emit("click", event);
+  emit('click', event)
 }
 </script>
 

@@ -5,6 +5,7 @@ const search = defineModel<string | number>('search', { required: true })
 const first = defineModel<string | number>('first', { required: true })
 const second = defineModel<string | number>('second', { required: true })
 </script>
+
 <template>
   <div class="filters">
     <UiInput v-model="search" type="search" label="Search" placeholder="Search products" />
@@ -28,6 +29,7 @@ const second = defineModel<string | number>('second', { required: true })
     />
   </div>
 </template>
+
 <style scoped>
 .filters {
   display: grid;

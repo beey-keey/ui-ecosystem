@@ -1,5 +1,5 @@
 export interface CardProps {
-  title?: string;
-  description?: string;
-  variant?: "default" | "accent" | "secondary";
+  title?: string
+  description?: string
+  variant?: 'default' | 'accent' | 'secondary'
 }

@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { CardProps } from "./UiCard.types";
-withDefaults(defineProps<CardProps>(), { variant: "default" });
+import type { CardProps } from './UiCard.types'
+withDefaults(defineProps<CardProps>(), { variant: 'default' })
 </script>
 
 <template>
   <section class="card" :class="variant">
     <header v-if="title || description || $slots.header">
-      <slot name="header"
-        ><h2 v-if="title">{{ title }}</h2>
-        <p v-if="description">{{ description }}</p></slot
-      >
+      <slot name="header">
+        <h2 v-if="title">{{ title }}</h2>
+        <p v-if="description">{{ description }}</p>
+      </slot>
     </header>
     <div><slot /></div>
     <footer v-if="$slots.footer"><slot name="footer" /></footer>

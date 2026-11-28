@@ -1,18 +1,19 @@
 <script setup lang="ts">
-import { ref, useId } from "vue";
-import type { NavigationItem } from "../../types";
-import AppSidebar from "../AppSidebar/AppSidebar.vue";
-import AppHeader from "../AppHeader/AppHeader.vue";
+import { ref, useId } from 'vue'
+import type { NavigationItem } from '../../types'
+import AppSidebar from '../AppSidebar/AppSidebar.vue'
+import AppHeader from '../AppHeader/AppHeader.vue'
 defineProps<{
-  appName: string;
-  pageTitle: string;
-  items: readonly NavigationItem[];
-  activeId: string;
-}>();
-const emit = defineEmits<{ navigate: [id: string] }>();
-const collapsed = ref(false);
-const sidebarId = useId();
+  appName: string
+  pageTitle: string
+  items: readonly NavigationItem[]
+  activeId: string
+}>()
+const emit = defineEmits<{ navigate: [id: string] }>()
+const collapsed = ref(false)
+const sidebarId = useId()
 </script>
+
 <template>
   <div class="shell" :class="{ collapsed }">
     <AppSidebar
@@ -36,6 +37,7 @@ const sidebarId = useId();
     </div>
   </div>
 </template>
+
 <style scoped>
 .shell {
   display: grid;

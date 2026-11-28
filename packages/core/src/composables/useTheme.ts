@@ -1,84 +1,80 @@
-import { ref, watch } from "vue";
+import { ref, watch } from 'vue'
 
-export type Brand = "academic" | "studio";
-export type Theme = "light" | "dark";
+export type Brand = 'academic' | 'studio'
+export type Theme = 'light' | 'dark'
 
 export interface ThemeOptions {
-  storageKey: string;
-  defaultBrand?: Brand;
-  defaultTheme?: Theme;
+  storageKey: string
+  defaultBrand?: Brand
+  defaultTheme?: Theme
 }
 
 interface ThemePreferences {
-  brand: Brand;
-  theme: Theme;
+  brand: Brand
+  theme: Theme
 }
 
 function isValidBrand(value: unknown): value is Brand {
-  return value === "academic" || value === "studio";
+  return value === 'academic' || value === 'studio'
 }
 
 function isValidTheme(value: unknown): value is Theme {
-  return value === "light" || value === "dark";
+  return value === 'light' || value === 'dark'
 }
 
 function loadPreferences(storageKey: string): Partial<ThemePreferences> {
   try {
-    const stored = localStorage.getItem(storageKey);
+    const stored = localStorage.getItem(storageKey)
 
     if (!stored) {
-      return {};
+      return {}
     }
 
-    const preferences = JSON.parse(stored);
+    const preferences = JSON.parse(stored)
 
     return {
       brand: isValidBrand(preferences?.brand) ? preferences.brand : undefined,
 
       theme: isValidTheme(preferences?.theme) ? preferences.theme : undefined,
-    };
+    }
   } catch {
-    return {};
+    return {}
   }
 }
 
 export function useTheme(options: ThemeOptions) {
-  const {
-    storageKey,
-    defaultBrand = "academic",
-    defaultTheme = "light",
-  } = options;
+  const { storageKey, defaultBrand = 'academic', defaultTheme = 'light' } = options
 
-  const preferences = loadPreferences(storageKey);
+  const preferences = loadPreferences(storageKey)
 
-  const brand = ref<Brand>(preferences.brand ?? defaultBrand);
+  const brand = ref<Brand>(preferences.brand ?? defaultBrand)
 
-  const theme = ref<Theme>(preferences.theme ?? defaultTheme);
+  const theme = ref<Theme>(preferences.theme ?? defaultTheme)
 
   function setBrand(value: Brand) {
-    brand.value = value;
+    brand.value = value
   }
 
   function setTheme(value: Theme) {
-    theme.value = value;
+    theme.value = value
   }
 
   function toggleTheme() {
-    theme.value = theme.value === "light" ? "dark" : "light";
+    theme.value = theme.value === 'light' ? 'dark' : 'light'
   }
 
   function resetTheme() {
-    brand.value = defaultBrand;
-    theme.value = defaultTheme;
+    brand.value = defaultBrand
+    theme.value = defaultTheme
   }
 
   watch(
     [brand, theme],
     ([currentBrand, currentTheme]) => {
-      if (typeof document !== "undefined") {
-        document.documentElement.dataset.brand = currentBrand;
+      if (typeof document !== 'undefined') {
+        document.documentElement.dataset.brand = currentBrand
 
-        document.documentElement.dataset.theme = currentTheme;
+        document.documentElement.dataset.theme = currentTheme
       }
 
       try {
@@ -88,14 +84,14 @@ export function useTheme(options: ThemeOptions) {
             brand: currentBrand,
             theme: currentTheme,
           }),
-        );
+        )
       } catch {
         // The application remains functional
         // when localStorage is unavailable.
       }
     },
     { immediate: true },
-  );
+  )
 
   return {
     brand,
@@ -104,5 +100,5 @@ export function useTheme(options: ThemeOptions) {
     setTheme,
     toggleTheme,
     resetTheme,
-  };
+  }
 }

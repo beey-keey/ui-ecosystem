@@ -1,38 +1,36 @@
 <script setup lang="ts">
-import { useId, ref } from "vue";
-import type { TabsProps } from "./UiTabs.types";
-const props = withDefaults(defineProps<TabsProps>(), { label: "Tabs" });
-const model = defineModel<string>({ required: true });
-const id = useId();
-const list = ref<HTMLElement | null>(null);
+import { useId, ref } from 'vue'
+import type { TabsProps } from './UiTabs.types'
+const props = withDefaults(defineProps<TabsProps>(), { label: 'Tabs' })
+const model = defineModel<string>({ required: true })
+const id = useId()
+const list = ref<HTMLElement | null>(null)
 function navigate(event: KeyboardEvent, index: number) {
-  const enabled = props.tabs
-    .map((tab, i) => ({ tab, i }))
-    .filter((x) => !x.tab.disabled);
-  if (!enabled.length) return;
-  const current = enabled.findIndex((x) => x.i === index);
-  let next: number;
+  const enabled = props.tabs.map((tab, i) => ({ tab, i })).filter((x) => !x.tab.disabled)
+  if (!enabled.length) return
+  const current = enabled.findIndex((x) => x.i === index)
+  let next: number
   switch (event.key) {
-    case "ArrowRight":
-      next = (current + 1) % enabled.length;
-      break;
-    case "ArrowLeft":
-      next = (current - 1 + enabled.length) % enabled.length;
-      break;
-    case "Home":
-      next = 0;
-      break;
-    case "End":
-      next = enabled.length - 1;
-      break;
+    case 'ArrowRight':
+      next = (current + 1) % enabled.length
+      break
+    case 'ArrowLeft':
+      next = (current - 1 + enabled.length) % enabled.length
+      break
+    case 'Home':
+      next = 0
+      break
+    case 'End':
+      next = enabled.length - 1
+      break
     default:
-      return;
+      return
   }
-  event.preventDefault();
-  const target = enabled[next];
-  if (!target) return;
-  model.value = target.tab.value;
-  list.value?.querySelectorAll<HTMLButtonElement>("button")[target.i]?.focus();
+  event.preventDefault()
+  const target = enabled[next]
+  if (!target) return
+  model.value = target.tab.value
+  list.value?.querySelectorAll<HTMLButtonElement>('button')[target.i]?.focus()
 }
 </script>
 
@@ -86,7 +84,7 @@ button {
   padding: var(--spacing-3) var(--spacing-4);
   font-size: var(--font-size-sm);
 }
-button[aria-selected="true"] {
+button[aria-selected='true'] {
   color: var(--color-primary);
   border-bottom-color: var(--color-primary);
 }

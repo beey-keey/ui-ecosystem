@@ -65,6 +65,7 @@ function confirmDelete() {
   else message.value = store.error || 'Unable to delete record.'
 }
 </script>
+
 <template>
   <section class="page">
     <div class="heading">
@@ -75,16 +76,17 @@ function confirmDelete() {
       <UiButton @click="openForm()">Add product</UiButton>
     </div>
     <UiAlert v-if="store.error" variant="error">{{ store.error }}</UiAlert>
-    <UiCard
-      ><ProductFilters
+    <UiCard>
+      <ProductFilters
         v-model:search="search"
         v-model:first="first"
         v-model:second="second"
         :categories="categories"
-    /></UiCard>
-    <UiCard :title="`${rows.length} of ${store.total} products`"
-      ><ProductTable :rows="rows" @edit="openForm" @remove="requestDelete"
-    /></UiCard>
+      />
+    </UiCard>
+    <UiCard :title="`${rows.length} of ${store.total} products`">
+      <ProductTable :rows="rows" @edit="openForm" @remove="requestDelete" />
+    </UiCard>
     <UiDialog
       v-model="formOpen"
       :title="editing ? 'Edit product' : 'Add product'"
@@ -102,13 +104,14 @@ function confirmDelete() {
     <UiDialog v-model="deleteOpen" title="Delete product?" :close-on-backdrop="false">
       <p>Delete {{ deleting?.name }}? This action cannot be undone.</p>
       <UiAlert v-if="message" variant="error">{{ message }}</UiAlert>
-      <template #footer
-        ><UiButton variant="outline" @click="deleteOpen = false">Cancel</UiButton
-        ><UiButton variant="destructive" @click="confirmDelete">Delete</UiButton></template
-      >
+      <template #footer>
+        <UiButton variant="outline" @click="deleteOpen = false">Cancel</UiButton>
+        <UiButton variant="destructive" @click="confirmDelete">Delete</UiButton>
+      </template>
     </UiDialog>
   </section>
 </template>
+
 <style scoped>
 .page {
   display: grid;

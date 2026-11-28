@@ -57,6 +57,7 @@ function submit() {
   })
 }
 </script>
+
 <template>
   <form class="form" @submit.prevent="submit">
     <UiAlert v-if="error" variant="error">{{ error }}</UiAlert>
@@ -66,11 +67,12 @@ function submit() {
     <UiInput v-model="quantity" label="Quantity" type="number" min="0" step="1" required />
     <UiInput v-model="price" label="Unit price" type="number" min="0" step="0.01" required />
     <div class="actions">
-      <UiButton variant="outline" @click="emit('cancel')">Cancel</UiButton
-      ><UiButton type="submit">Save</UiButton>
+      <UiButton variant="outline" @click="emit('cancel')">Cancel</UiButton>
+      <UiButton type="submit">Save</UiButton>
     </div>
   </form>
 </template>
+
 <style scoped>
 .form {
   display: grid;

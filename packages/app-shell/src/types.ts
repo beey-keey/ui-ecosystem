@@ -1,6 +1,6 @@
-import type { Component } from "vue";
+import type { Component } from 'vue'
 export interface NavigationItem {
-  id: string;
-  label: string;
-  icon?: Component;
+  id: string
+  label: string
+  icon?: Component
 }

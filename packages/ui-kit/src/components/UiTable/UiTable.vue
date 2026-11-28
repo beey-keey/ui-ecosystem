@@ -1,8 +1,8 @@
 <script setup lang="ts" generic="T extends object">
-import type { TableProps } from "./UiTable.types";
-withDefaults(defineProps<TableProps<T>>(), { emptyText: "No results found." });
+import type { TableProps } from './UiTable.types'
+withDefaults(defineProps<TableProps<T>>(), { emptyText: 'No results found.' })
 function cell(row: T, key: string): unknown {
-  return row[key as keyof T];
+  return row[key as keyof T]
 }
 </script>
 
@@ -10,9 +10,7 @@ function cell(row: T, key: string): unknown {
   <div class="wrapper">
     <table>
       <caption class="visually-hidden">
-        {{
-          caption
-        }}
+        {{ caption }}
       </caption>
       <thead>
         <tr>
@@ -33,12 +31,9 @@ function cell(row: T, key: string): unknown {
             :key="column.key"
             :style="{ textAlign: column.align || 'left' }"
           >
-            <slot
-              :name="`cell-${column.key}`"
-              :row="row"
-              :value="cell(row, column.key)"
-              >{{ cell(row, column.key) }}</slot
-            >
+            <slot :name="`cell-${column.key}`" :row="row" :value="cell(row, column.key)">
+              {{ cell(row, column.key) }}
+            </slot>
           </td>
         </tr>
         <tr v-if="!rows.length">

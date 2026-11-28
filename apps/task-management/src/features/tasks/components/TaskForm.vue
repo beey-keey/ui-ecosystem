@@ -44,6 +44,7 @@ function submit() {
   emit('save', { ...draft, title: draft.title.trim(), description: draft.description.trim() })
 }
 </script>
+
 <template>
   <form class="form" @submit.prevent="submit">
     <UiAlert v-if="error" variant="error">{{ error }}</UiAlert>
@@ -51,13 +52,17 @@ function submit() {
     <UiInput v-model="description" label="Description" />
     <UiSelect v-model="priority" label="Priority" :options="priorities" />
     <UiSelect v-model="status" label="Status" :options="statuses" />
-    <label>Due date <input v-model="draft.dueDate" type="date" /></label>
+    <label>
+      Due date
+      <input v-model="draft.dueDate" type="date" />
+    </label>
     <div class="actions">
-      <UiButton variant="outline" @click="emit('cancel')">Cancel</UiButton
-      ><UiButton type="submit">Save</UiButton>
+      <UiButton variant="outline" @click="emit('cancel')">Cancel</UiButton>
+      <UiButton type="submit">Save</UiButton>
     </div>
   </form>
 </template>
+
 <style scoped>
 .form {
   display: grid;

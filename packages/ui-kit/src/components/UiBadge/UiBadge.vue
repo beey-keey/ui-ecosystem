@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { BadgeProps } from "./UiBadge.types";
-withDefaults(defineProps<BadgeProps>(), { variant: "neutral" });
+import type { BadgeProps } from './UiBadge.types'
+withDefaults(defineProps<BadgeProps>(), { variant: 'neutral' })
 </script>
 
 <template>

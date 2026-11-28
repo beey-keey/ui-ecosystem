@@ -110,7 +110,7 @@ function getStatusVariant(status: unknown) {
   <main class="showcase">
     <header class="showcase-header">
       <div class="heading">
-        <span class="eyebrow"> UI ECOSYSTEM / COMPONENT LIBRARY </span>
+        <span class="eyebrow">UI ECOSYSTEM / COMPONENT LIBRARY</span>
 
         <h1>Component Showcase</h1>
 
@@ -170,7 +170,7 @@ function getStatusVariant(status: unknown) {
           </UiButton>
         </div>
 
-        <UiButton full-width variant="outline"> Full width button </UiButton>
+        <UiButton full-width variant="outline">Full width button</UiButton>
       </div>
     </UiCard>
 
@@ -298,15 +298,15 @@ function getStatusVariant(status: unknown) {
     <!-- Dialog -->
 
     <UiCard title="06 — Dialog" description="Modal interaction using the native dialog element.">
-      <UiButton @click="dialogOpen = true"> Open dialog </UiButton>
+      <UiButton @click="dialogOpen = true">Open dialog</UiButton>
 
       <UiDialog v-model="dialogOpen" title="Confirm action">
         <p>This dialog is provided by the shared UI library.</p>
 
         <template #footer>
-          <UiButton variant="outline" @click="dialogOpen = false"> Cancel </UiButton>
+          <UiButton variant="outline" @click="dialogOpen = false">Cancel</UiButton>
 
-          <UiButton @click="dialogOpen = false"> Confirm </UiButton>
+          <UiButton @click="dialogOpen = false">Confirm</UiButton>
         </template>
       </UiDialog>
     </UiCard>
@@ -361,13 +361,11 @@ function getStatusVariant(status: unknown) {
           Your changes have been saved successfully.
         </UiAlert>
 
-        <UiAlert variant="error" title="Error"> An unexpected error occurred. </UiAlert>
+        <UiAlert variant="error" title="Error">An unexpected error occurred.</UiAlert>
 
-        <UiAlert variant="warning" title="Warning">
-          Some products are running low on stock.
-        </UiAlert>
+        <UiAlert variant="warning" title="Warning">Some products are running low on stock.</UiAlert>
 
-        <UiAlert variant="info" title="Information"> A new version is available. </UiAlert>
+        <UiAlert variant="info" title="Information">A new version is available.</UiAlert>
 
         <UiAlert
           v-if="showAlert"
@@ -379,9 +377,7 @@ function getStatusVariant(status: unknown) {
           This notification can be dismissed.
         </UiAlert>
 
-        <UiButton v-else variant="outline" @click="showAlert = true">
-          Restore notification
-        </UiButton>
+        <UiButton v-else variant="outline" @click="showAlert = true">Restore notification</UiButton>
       </div>
     </UiCard>
 

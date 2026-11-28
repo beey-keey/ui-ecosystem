@@ -1,45 +1,45 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, onBeforeUnmount, useId } from "vue";
-import type { DialogProps } from "./UiDialog.types";
+import { ref, watch, onMounted, onBeforeUnmount, useId } from 'vue'
+import type { DialogProps } from './UiDialog.types'
 const props = withDefaults(defineProps<DialogProps>(), {
   closeOnBackdrop: true,
-});
-const model = defineModel<boolean>({ required: true });
-const dialog = ref<HTMLDialogElement | null>(null);
-const titleId = useId();
+})
+const model = defineModel<boolean>({ required: true })
+const dialog = ref<HTMLDialogElement | null>(null)
+const titleId = useId()
 function sync() {
-  const el = dialog.value;
-  if (!el) return;
-  if (model.value && !el.open) el.showModal();
-  else if (!model.value && el.open) el.close();
+  const el = dialog.value
+  if (!el) return
+  if (model.value && !el.open) el.showModal()
+  else if (!model.value && el.open) el.close()
 }
 function close() {
-  model.value = false;
+  model.value = false
 }
 function backdrop(event: MouseEvent) {
-  const element = dialog.value;
+  const element = dialog.value
 
   if (!element || !props.closeOnBackdrop || event.target !== element) {
-    return;
+    return
   }
 
-  const rect = element.getBoundingClientRect();
+  const rect = element.getBoundingClientRect()
 
   const isOutside =
     event.clientX < rect.left ||
     event.clientX > rect.right ||
     event.clientY < rect.top ||
-    event.clientY > rect.bottom;
+    event.clientY > rect.bottom
 
   if (isOutside) {
-    model.value = false;
+    model.value = false
   }
 }
-onMounted(sync);
-watch(model, sync, { flush: "post" });
+onMounted(sync)
+watch(model, sync, { flush: 'post' })
 onBeforeUnmount(() => {
-  if (dialog.value?.open) dialog.value.close();
-});
+  if (dialog.value?.open) dialog.value.close()
+})
 </script>
 
 <template>

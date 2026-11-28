@@ -1,39 +1,32 @@
 <script setup lang="ts">
-import { computed, useId } from "vue";
-import type { InputProps, InputValue } from "./UiInput.types";
-defineOptions({ inheritAttrs: false });
+import { computed, useId } from 'vue'
+import type { InputProps, InputValue } from './UiInput.types'
+defineOptions({ inheritAttrs: false })
 const props = withDefaults(defineProps<InputProps>(), {
-  size: "md",
+  size: 'md',
   disabled: false,
   required: false,
   fullWidth: false,
-  type: "text",
+  type: 'text',
   readonly: false,
-});
-const model = defineModel<InputValue>({ required: true });
-const generatedId = useId();
-const inputId = computed(() => props.id || generatedId);
+})
+const model = defineModel<InputValue>({ required: true })
+const generatedId = useId()
+const inputId = computed(() => props.id || generatedId)
 const describedBy = computed(() =>
-  props.error
-    ? `${inputId.value}-error`
-    : props.helperText
-      ? `${inputId.value}-helper`
-      : undefined,
-);
+  props.error ? `${inputId.value}-error` : props.helperText ? `${inputId.value}-helper` : undefined,
+)
 </script>
 
 <template>
   <div class="field" :class="{ full: fullWidth }">
-    <label v-if="label" :for="inputId"
-      >{{ label }}
-      <span v-if="required" class="required" aria-hidden="true">*</span></label
-    >
+    <label v-if="label" :for="inputId">
+      {{ label }}
+      <span v-if="required" class="required" aria-hidden="true">*</span>
+    </label>
     <div
       class="control"
-      :class="[
-        size,
-        { invalid: error, disabled, readonly: readonly && !disabled },
-      ]"
+      :class="[size, { invalid: error, disabled, readonly: readonly && !disabled }]"
     >
       <span v-if="$slots.leading" class="icon"><slot name="leading" /></span>
       <input
@@ -46,8 +39,7 @@ const describedBy = computed(() =>
         :autocomplete="autocomplete"
         :aria-invalid="Boolean(error)"
         :aria-describedby="
-          [describedBy, $attrs['aria-describedby']].filter(Boolean).join(' ') ||
-          undefined
+          [describedBy, $attrs['aria-describedby']].filter(Boolean).join(' ') || undefined
         "
         :type="type"
         :placeholder="placeholder"

@@ -1,0 +1,21 @@
+{
+  "name": "@ui-ecosystem/user-management",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@ui-ecosystem/contracts": "workspace:*"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.0",
+    "@ui-ecosystem/ui-kit": "workspace:*",
+    "@ui-ecosystem/design-system": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "sideEffects": [
+    "**/*.vue",
+    "**/*.css"
+  ]
+}

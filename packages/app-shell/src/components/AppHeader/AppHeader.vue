@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { UiButton } from "@ui-ecosystem/ui-kit";
-defineProps<{ title: string; expanded: boolean; controls: string }>();
-const emit = defineEmits<{ toggle: [] }>();
+import { UiButton } from '@ui-ecosystem/ui-kit'
+defineProps<{ title: string; expanded: boolean; controls: string }>()
+const emit = defineEmits<{ toggle: [] }>()
 </script>
+
 <template>
   <header class="header">
     <UiButton
@@ -10,12 +11,14 @@ const emit = defineEmits<{ toggle: [] }>();
       :aria-expanded="expanded"
       :aria-controls="expanded ? controls : undefined"
       @click="emit('toggle')"
-      >{{ expanded ? "Hide menu" : "Show menu" }}</UiButton
     >
+      {{ expanded ? 'Hide menu' : 'Show menu' }}
+    </UiButton>
     <span class="title">{{ title }}</span>
     <div class="actions"><slot name="actions" /></div>
   </header>
 </template>
+
 <style scoped>
 .header {
   display: flex;

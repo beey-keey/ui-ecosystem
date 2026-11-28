@@ -1,4 +1,4 @@
 export interface DialogProps {
-  title: string;
-  closeOnBackdrop?: boolean;
+  title: string
+  closeOnBackdrop?: boolean
 }

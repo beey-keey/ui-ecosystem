@@ -1,29 +1,20 @@
 <script setup lang="ts">
-import type { AlertProps } from "./UiAlert.types";
+import type { AlertProps } from './UiAlert.types'
 withDefaults(defineProps<AlertProps>(), {
-  variant: "info",
+  variant: 'info',
   dismissible: false,
-});
-const emit = defineEmits<{ dismiss: [] }>();
+})
+const emit = defineEmits<{ dismiss: [] }>()
 </script>
 
 <template>
-  <div
-    class="alert"
-    :class="variant"
-    :role="variant === 'error' ? 'alert' : 'status'"
-  >
+  <div class="alert" :class="variant" :role="variant === 'error' ? 'alert' : 'status'">
     <slot name="icon" />
     <div class="content">
-      <strong v-if="title">{{ title }}</strong
-      ><slot />
+      <strong v-if="title">{{ title }}</strong>
+      <slot />
     </div>
-    <button
-      v-if="dismissible"
-      type="button"
-      aria-label="Dismiss message"
-      @click="emit('dismiss')"
-    >
+    <button v-if="dismissible" type="button" aria-label="Dismiss message" @click="emit('dismiss')">
       ×
     </button>
   </div>

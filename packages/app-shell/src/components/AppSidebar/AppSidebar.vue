@@ -1,16 +1,18 @@
 <script setup lang="ts">
-import type { NavigationItem } from "../../types";
+import type { NavigationItem } from '../../types'
 defineProps<{
-  appName: string;
-  items: readonly NavigationItem[];
-  activeId: string;
-}>();
-const emit = defineEmits<{ navigate: [id: string] }>();
+  appName: string
+  items: readonly NavigationItem[]
+  activeId: string
+}>()
+const emit = defineEmits<{ navigate: [id: string] }>()
 </script>
+
 <template>
   <aside class="sidebar">
     <div class="identity">
-      <small>UI ECOSYSTEM</small><strong>{{ appName }}</strong>
+      <small>UI ECOSYSTEM</small>
+      <strong>{{ appName }}</strong>
     </div>
     <nav aria-label="Main navigation">
       <button
@@ -27,6 +29,7 @@ const emit = defineEmits<{ navigate: [id: string] }>();
     </nav>
   </aside>
 </template>
+
 <style scoped>
 .sidebar {
   background: var(--color-surface);
