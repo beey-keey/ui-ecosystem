@@ -2,7 +2,7 @@
 import { useTheme } from '@ui-ecosystem/core'
 import { UiButton } from '@ui-ecosystem/ui-kit'
 
-import { Trash2 } from 'lucide-vue-next'
+import { Trash2 } from '@lucide/vue'
 
 const { brand, theme } = useTheme({
   storageKey: 'task-management-theme',

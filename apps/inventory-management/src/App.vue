@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { useTheme } from '@ui-ecosystem/core'
 import { UiButton } from '@ui-ecosystem/ui-kit'
-import { Plus } from 'lucide-vue-next'
+import { Plus } from '@lucide/vue'
 
 const { brand, theme } = useTheme({
   storageKey: 'inventory-management-theme',
