@@ -2,14 +2,14 @@
    Fonts
    ======================================== */
 
-@import '@fontsource-variable/geist';
-@import '@fontsource-variable/geist-mono';
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
 
 /* ========================================
    Design System Foundations
    ======================================== */
 
-@import './tokens.css';
-@import './brands.css';
-@import './themes.css';
-@import './base.css';
+@import "./tokens.css";
+@import "./brands.css";
+@import "./themes.css";
+@import "./base.css";

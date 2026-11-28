@@ -4,7 +4,7 @@
    ======================================== */
 
 :root,
-[data-brand='academic'] {
+[data-brand="academic"] {
   /* Primary */
   --brand-primary: var(--color-indigo-900);
   --brand-primary-hover: var(--color-indigo-800);
@@ -46,7 +46,7 @@
    Contemporary alternative identity
    ======================================== */
 
-[data-brand='studio'] {
+[data-brand="studio"] {
   /* Primary */
   --brand-primary: var(--color-graphite-900);
   --brand-primary-hover: var(--color-graphite-700);

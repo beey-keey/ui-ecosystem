@@ -1,7 +1,7 @@
-import { ref, watch } from 'vue';
+import { ref, watch } from "vue";
 
-export type Brand = 'academic' | 'studio';
-export type Theme = 'light' | 'dark';
+export type Brand = "academic" | "studio";
+export type Theme = "light" | "dark";
 
 export interface ThemeOptions {
   storageKey: string;
@@ -15,11 +15,11 @@ interface ThemePreferences {
 }
 
 function isValidBrand(value: unknown): value is Brand {
-  return value === 'academic' || value === 'studio';
+  return value === "academic" || value === "studio";
 }
 
 function isValidTheme(value: unknown): value is Theme {
-  return value === 'light' || value === 'dark';
+  return value === "light" || value === "dark";
 }
 
 function loadPreferences(storageKey: string): Partial<ThemePreferences> {
@@ -45,8 +45,8 @@ function loadPreferences(storageKey: string): Partial<ThemePreferences> {
 export function useTheme(options: ThemeOptions) {
   const {
     storageKey,
-    defaultBrand = 'academic',
-    defaultTheme = 'light',
+    defaultBrand = "academic",
+    defaultTheme = "light",
   } = options;
 
   const preferences = loadPreferences(storageKey);
@@ -64,7 +64,7 @@ export function useTheme(options: ThemeOptions) {
   }
 
   function toggleTheme() {
-    theme.value = theme.value === 'light' ? 'dark' : 'light';
+    theme.value = theme.value === "light" ? "dark" : "light";
   }
 
   function resetTheme() {
@@ -75,7 +75,7 @@ export function useTheme(options: ThemeOptions) {
   watch(
     [brand, theme],
     ([currentBrand, currentTheme]) => {
-      if (typeof document !== 'undefined') {
+      if (typeof document !== "undefined") {
         document.documentElement.dataset.brand = currentBrand;
 
         document.documentElement.dataset.theme = currentTheme;

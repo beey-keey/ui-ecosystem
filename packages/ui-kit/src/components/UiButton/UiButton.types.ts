@@ -1,14 +1,9 @@
 export type ButtonVariant =
-  | 'primary'
-  | 'secondary'
-  | 'accent'
-  | 'outline'
-  | 'ghost'
-  | 'destructive';
+  "primary" | "secondary" | "accent" | "outline" | "ghost" | "destructive";
 
-export type ButtonSize = 'sm' | 'md' | 'lg';
+export type ButtonSize = "sm" | "md" | "lg";
 
-export type ButtonType = 'button' | 'submit' | 'reset';
+export type ButtonType = "button" | "submit" | "reset";
 
 export interface ButtonProps {
   variant?: ButtonVariant;
