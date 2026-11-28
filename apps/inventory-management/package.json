@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@lucide/vue": "^1.82.0",
+    "@ui-ecosystem/app-shell": "workspace:*",
     "@ui-ecosystem/core": "workspace:*",
     "@ui-ecosystem/design-system": "workspace:*",
     "@ui-ecosystem/ui-kit": "workspace:*",

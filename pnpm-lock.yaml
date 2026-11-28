@@ -330,6 +330,9 @@ importers:
       '@lucide/vue':
         specifier: ^1.82.0
         version: 1.82.0(vue@3.5.46(typescript@6.0.3))
+      '@ui-ecosystem/app-shell':
+        specifier: workspace:*
+        version: link:../../packages/app-shell
       '@ui-ecosystem/core':
         specifier: workspace:*
         version: link:../../packages/core
@@ -421,6 +424,9 @@ importers:
       '@lucide/vue':
         specifier: ^1.82.0
         version: 1.82.0(vue@3.5.46(typescript@6.0.3))
+      '@ui-ecosystem/app-shell':
+        specifier: workspace:*
+        version: link:../../packages/app-shell
       '@ui-ecosystem/core':
         specifier: workspace:*
         version: link:../../packages/core
@@ -506,6 +512,21 @@ importers:
       vue-tsc:
         specifier: ^3.3.11
         version: 3.3.14(typescript@6.0.3)
+
+  packages/app-shell:
+    dependencies:
+      '@ui-ecosystem/core':
+        specifier: workspace:*
+        version: link:../core
+      '@ui-ecosystem/design-system':
+        specifier: workspace:*
+        version: link:../design-system
+      '@ui-ecosystem/ui-kit':
+        specifier: workspace:*
+        version: link:../ui-kit
+      vue:
+        specifier: ^3.5.0
+        version: 3.5.46(typescript@6.0.3)
 
   packages/core:
     dependencies:
